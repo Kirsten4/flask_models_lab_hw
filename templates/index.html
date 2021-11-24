@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>
+            {{ title }} - Chocolate Shop
+        </title>
+    </head>
+    <body>
+        <h1>Chocolate Shop</h1>
+        <h3>Order List:</h3>
+        <hr>
+        {% for order in orders %}
+            <div>
+                <b>{{ order.customer_name }}</b>: {{ order.order_date }}<br> 
+                <b>Quantity</b>: {{ order.quantity }}<br>
+                <b>Type: </b>{{ order.chocolate_type }}<br>
+                <b>Gift Wrapped: </b> {{ order.gift_wrapped }}<br>
+                <a href="http://127.0.0.1:5000/orders/{{ orders.index(order)}}">Go to Order</a>
+                <input type="checkbox">
+            </div>            
+        {% endfor %}
+    </body>
+</html>
